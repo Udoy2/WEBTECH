@@ -84,11 +84,7 @@
 
     <form action="register.php" method="POST">
         <fieldset>
-<<<<<<< HEAD
             <legend><strong>Buyer Registration</strong></legend>
-=======
-            <legend>Buyer Registration</legend>
->>>>>>> 27da35d80201a9fe5dff747b60d37b193c8c2e16
             <table>
                 <tr>
                     <td><label for="name">Full Name:</label></td>
@@ -140,16 +136,6 @@
                     </td>
                 </tr>
                 <tr>
-<<<<<<< HEAD
-=======
-                    <td><label for="quantity">Number of Pets:</label></td>
-                    <td>
-                        <input type="range" id="quantity" name="quantity" min="1" max="5" oninput="output.value = quantity.value">
-                        <output id="output">3</output>
-                    </td>
-                </tr>
-                <tr>
->>>>>>> 27da35d80201a9fe5dff747b60d37b193c8c2e16
                     <td colspan="2" style="text-align: center;">
                         <button type="submit">Register</button>
                     </td>
