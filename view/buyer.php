@@ -1,3 +1,4 @@
+<?php include("control/validation.php"); ?>
 
 <html>
 <head>
@@ -9,22 +10,36 @@
     <h2>Biggest Marketplace to buy or sell pets</h2>
     <h3>Please fill up the form to get new pets</h3>
 
-    <form action="register.php" method="POST">
+    <div id="error" class="error">
+        <?php
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            if (!empty($errors)) {
+                foreach ($errors as $error) {
+                    echo htmlspecialchars($error) . "<br>";
+                }
+            } elseif (isset($successMessage)) {
+                echo "<span style='color:green;'>$successMessage</span>";
+            }
+        }
+        ?>
+    </div>
+
+    <form method="POST">
         <fieldset>
             <legend><strong>Buyer Registration</strong></legend>
             <table>
                 <tr>
                     <td><label for="name">Full Name:</label></td>
-                    <td><input type="text" id="name" name="name" required></td>
+                    <td><input type="text" id="name" name="name" class="form-input" value="<?php echo $name; ?>"></td>
                 </tr>
                 <tr>
                     <td><label for="email">Email:</label></td>
-                    <td><input type="email" id="email" name="email" required></td>
+                    <td><input type="text" id="email" name="email" class="form-input" value="<?php echo $email; ?>"></td>
                 </tr>
                 <tr>
                     <td><label for="pet">Select Pet Type:</label></td>
                     <td>
-                        <select id="pet" name="pet">
+                        <select id="pet" name="pet" class="form-input">
                             <optgroup label="Mammals">
                                 <option value="dog">Dog</option>
                                 <option value="cat">Cat</option>
@@ -39,26 +54,26 @@
                 <tr>
                     <td><label>Gender:</label></td>
                     <td>
-                        <input type="radio" name="gender" value="male" id="male">
+                        <input type="radio" name="gender" value="male" id="male" class="form-radio" <?php if ($gender == 'male') echo 'checked'; ?>>
                         <label for="male">Male</label>
-                        <input type="radio" name="gender" value="female" id="female">
+                        <input type="radio" name="gender" value="female" id="female" class="form-radio" <?php if ($gender == 'female') echo 'checked'; ?>>
                         <label for="female">Female</label>
                     </td>
                 </tr>
                 <tr>
                     <td><label for="address">Address:</label></td>
-                    <td><textarea id="address" name="address" rows="3" required></textarea></td>
+                    <td><textarea id="address" name="address" rows="3" class="form-input"><?php echo $address; ?></textarea></td>
                 </tr>
                 <tr>
                     <td><label for="desired_items">Select Desired Items:</label></td>
                     <td>
-                        <input type="checkbox" id="pets" name="desired_items" value="pets">
+                        <input type="checkbox" id="pets" name="desired_items[]" value="pets" class="form-checkbox">
                         <label for="pets">Pets</label><br>
-                        <input type="checkbox" id="pet_food" name="desired_items" value="pet_food">
+                        <input type="checkbox" id="pet_food" name="desired_items[]" value="pet_food" class="form-checkbox">
                         <label for="pet_food">Pet Food</label><br>
-                        <input type="checkbox" id="pet_accessories" name="desired_items" value="pet_accessories">
+                        <input type="checkbox" id="pet_accessories" name="desired_items[]" value="pet_accessories" class="form-checkbox">
                         <label for="pet_accessories">Pet Accessories</label><br>
-                        <input type="checkbox" id="pet_nest" name="desired_items" value="pet_nest">
+                        <input type="checkbox" id="pet_nest" name="desired_items[]" value="pet_nest" class="form-checkbox">
                         <label for="pet_nest">Pet Nest</label>
                     </td>
                 </tr>
