@@ -1,9 +1,7 @@
-<?php include("../../control/validation.php"); ?>
-
 <html>
 <head>
     <title>Pet Valley</title>
-    <link rel="stylesheet" href="../../styles/buyer.css">
+    <link rel="stylesheet" href="../../public/styles/buyer.css">
 </head>
 <body>
     <h1>Welcome to the official website of Pet Valley</h1>
@@ -11,17 +9,6 @@
     <h3>Please fill up the form to get new pets</h3>
 
     <div id="error" class="error">
-        <?php
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            if (!empty($errors)) {
-                foreach ($errors as $error) {
-                    echo htmlspecialchars($error) . "<br>";
-                }
-            } elseif (isset($successMessage)) {
-                echo "<span style='color:green;'>$successMessage</span>";
-            }
-        }
-        ?>
     </div>
 
     <form method="POST">
@@ -30,11 +17,11 @@
             <table>
                 <tr>
                     <td><label for="name">Full Name:</label></td>
-                    <td><input type="text" id="name" name="name" class="form-input" value="<?php echo $name; ?>"></td>
+                    <td><input type="text" id="name" name="name" class="form-input"></td>
                 </tr>
                 <tr>
                     <td><label for="email">Email:</label></td>
-                    <td><input type="text" id="email" name="email" class="form-input" value="<?php echo $email; ?>"></td>
+                    <td><input type="text" id="email" name="email" class="form-input"></td>
                 </tr>
                 <tr>
                     <td><label for="pet">Select Pet Type:</label></td>
@@ -54,15 +41,15 @@
                 <tr>
                     <td><label>Gender:</label></td>
                     <td>
-                        <input type="radio" name="gender" value="male" id="male" class="form-radio" <?php if ($gender == 'male') echo 'checked'; ?>>
+                        <input type="radio" name="gender" value="male" id="male" class="form-radio">
                         <label for="male">Male</label>
-                        <input type="radio" name="gender" value="female" id="female" class="form-radio" <?php if ($gender == 'female') echo 'checked'; ?>>
+                        <input type="radio" name="gender" value="female" id="female" class="form-radio">
                         <label for="female">Female</label>
                     </td>
                 </tr>
                 <tr>
                     <td><label for="address">Address:</label></td>
-                    <td><textarea id="address" name="address" rows="3" class="form-input"><?php echo $address; ?></textarea></td>
+                    <td><textarea id="address" name="address" rows="3" class="form-input"></textarea></td>
                 </tr>
                 <tr>
                     <td><label for="desired_items">Select Desired Items:</label></td>
