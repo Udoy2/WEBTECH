@@ -12,6 +12,14 @@
             <h1>Welcome to Pet Valley</h1>
             <p>Please login to continue</p>
         </div>
+        <?php
+        // Display error message if login fails
+            session_start();
+            if (isset($_SESSION['login_error'])) {
+                echo '<div class="error-message">' . $_SESSION['login_error'] . '</div>';
+                unset($_SESSION['login_error']);
+            }
+        ?>
         
         <form action="../../control/auth/LoginControl.php" method="post">
             <div class="form-group">

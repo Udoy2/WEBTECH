@@ -49,4 +49,24 @@ function getUserByUsername($username) {
     
     return $user;
 }
+
+function loginUser($usernameOrEmail, $password) {
+    global $conn;
+    
+    // Check if input is email or username
+    $isEmail = filter_var($usernameOrEmail, FILTER_VALIDATE_EMAIL);
+    
+    if ($isEmail) {
+        $user = getUserByEmail($usernameOrEmail);
+    } else {
+        $user = getUserByUsername($usernameOrEmail);
+    }
+    
+    // Check if user exists and verify password
+    if ($user && password_verify($password, $user['password'])) {
+        return $user;
+    }
+    
+    return false;
+}
 ?>
