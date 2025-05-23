@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($user['userType'] === 'buyer') {
             header("Location: ../../view/post/buyer.php");
         } else {
-            header("Location: ../../view/post/seller.php");
+            header("Location: ../../view/dashboard/seller_dashboard.php");
         }
         exit();
     } else {
