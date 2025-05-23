@@ -4,10 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PET VALLEY - LOGIN</title>
+        <link rel="stylesheet" href="../../public/styles/main.css">
     <link rel="stylesheet" href="../../public/styles/login.css">
 </head>
 <body>
-    <div class="login-container">
+    <?php include_once '../component/navbar.php'; ?>
+    <div class="login">
+        <div class="login-container">
         <div class="login-header">
             <h1>Welcome to Pet Valley</h1>
             <p>Please login to continue</p>
@@ -39,5 +42,7 @@
             </div>
         </form>
     </div>
+    </div>
+    <?php include_once '../component/footer.php'; ?>
 </body>
 </html>

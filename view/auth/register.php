@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PET VALLEY - REGISTER</title>
+    <link rel="stylesheet" href="../../public/styles/main.css">
     <link rel="stylesheet" href="../../public/styles/login.css">
     <style>
         .form-select {
@@ -22,9 +23,10 @@
         }
     </style>
 </head>
-<body>
-    <div class="login-container">
-        <div class="login-header">
+<body >
+    <?php include_once '../component/navbar.php'; ?>
+    <div class="login-container" style="margin: 8rem auto;">
+        <div class="login-header" >
             <h1>Create Account</h1>
             <p>Join Pet Valley Today</p>
         </div>
@@ -76,5 +78,7 @@
             </div>
         </form>
     </div>
+
+    <?php include_once '../component/footer.php'; ?>
 </body>
 </html>

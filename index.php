@@ -1,52 +1,43 @@
+<?php
+session_start();
+require_once './model/PostModel.php';
 
-<html>
+// Get all seller posts
+$posts = getSellerPosts();
+?>
+
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Pet Valley</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #fefefe;
-            text-align: center;
-            padding: 50px;
-        }
-
-        h1, h2, h3 {
-            color: #333;
-            margin-bottom: 20px;
-        }
-
-        form {
-            display: inline-block;
-            margin: 10px;
-        }
-
-        button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 12px 25px;
-            font-size: 16px;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        button:hover {
-            background-color: #45a049;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Valley - Available Pets</title>
+    <link rel="stylesheet" href="./public/styles/main.css">
 </head>
 <body>
-    <h1>Welcome to the official website of Pet Valley</h1>
-    <h2>Biggest Marketplace to buy or sell pets</h2>
-    <h3>Choose your role</h3>
+    <?php include_once './view/component/navbar.php'; ?>
 
-    <form action="./view/post/seller.php" method="GET">
-        <button>Seller</button>
-    </form>
-    
-    <form action="./view/post/buyer.php" method="GET">
-        <button>Buyer</button>
-    </form>
+    <div class="products-container">
+        <?php foreach ($posts as $post): ?>
+            <div class="product-card">
+                <img 
+                    src="./<?php echo htmlspecialchars($post['image_path']); ?>" 
+                    alt="<?php echo htmlspecialchars($post['business_name']); ?>"
+                    class="product-image"
+                >
+                <div class="product-info">
+                    <h3 class="product-title"><?php echo htmlspecialchars($post['business_name']); ?></h3>
+                    <p class="product-category"><?php echo htmlspecialchars($post['pet_category']); ?></p>
+                    <p class="product-price"><?php echo htmlspecialchars($post['price_range']); ?></p>
+                    <p><?php echo htmlspecialchars($post['description']); ?></p>
+                    <span class="product-availability <?php echo $post['availability']; ?>">
+                        <?php echo ucfirst($post['availability']); ?>
+                    </span>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    </div>
+
+    <?php include_once './view/component/footer.php'; ?>
 </body>
 </html>

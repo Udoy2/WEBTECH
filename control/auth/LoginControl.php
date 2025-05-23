@@ -16,9 +16,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
         // Redirect based on user type
         if ($user['userType'] === 'buyer') {
-            header("Location: ../../view/dashboard/buyer_dashboard.php");
+            header("Location: ../../view/post/buyer.php");
         } else {
-            header("Location: ../../view/dashboard/seller_dashboard.php");
+            header("Location: ../../view/post/seller.php");
         }
         exit();
     } else {
