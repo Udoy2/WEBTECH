@@ -59,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         ];
         
         if (createSellerPost($_SESSION['user_id'], $sellerData, $imagePath)) {
-            header("Location: ../../view/post/seller_success.php");
+            header("Location: ../../view/dashboard/seller_dashboard.php");
             exit();
         } else {
             $errors[] = "Failed to create post";
