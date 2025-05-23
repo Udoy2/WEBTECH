@@ -26,10 +26,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 if (isset($_POST['post_id'])) {
                     $imagePath = null;
                     if (isset($_FILES['pet_image']) && $_FILES['pet_image']['error'] === 0) {
-                        $uploadDir = '../../public/uploads/';
-                        $fileExtension = pathinfo($_FILES['pet_image']['name'], PATHINFO_EXTENSION);
-                        $fileName = uniqid() . '.' . $fileExtension;
-                        $targetPath = $uploadDir . $fileName;
+                        $uploadDirectory = '../../public/uploads/';
+                        $fileParts = explode('.', $_FILES['pet_image']['name']);
+                        $extension = strtolower(end($fileParts)); // Use strtolower to normalize
+                        $newFileName = uniqid() . '.' . $extension;
+                        // Full path to save the uploaded file
+                        $fullPath = $uploadDirectory . $newFileName;
                         
                         if (move_uploaded_file($_FILES['pet_image']['tmp_name'], $targetPath)) {
                             $imagePath = 'public/uploads/' . $fileName;

@@ -28,10 +28,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             mkdir($uploadDir, 0777, true);
         }
         
-        // Generate unique filename
-        $fileExtension = pathinfo($_FILES['pet_image']['name'], PATHINFO_EXTENSION);
-        $fileName = uniqid() . '.' . $fileExtension;
-        $targetPath = $uploadDir . $fileName;
+        $fileParts = explode('.', $_FILES['pet_image']['name']);
+        $extension = strtolower(end($fileParts)); // Use strtolower to normalize
+        $newFileName = uniqid() . '.' . $extension;
+        // Full path to save the uploaded file
+        $fullPath = $uploadDir . $newFileName;
         
         // Validate file type
         $allowedTypes = ['image/jpeg', 'image/png', 'image/jpg'];
@@ -40,8 +41,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
         
         // Move uploaded file
-        if (empty($errors) && move_uploaded_file($_FILES['pet_image']['tmp_name'], $targetPath)) {
-            $imagePath = 'public/uploads/' . $fileName;
+        if (empty($errors) && move_uploaded_file($_FILES['pet_image']['tmp_name'], $fullPath)) {
+            $imagePath = 'public/uploads/' . $newFileName;
         } else {
             $errors[] = "Failed to upload image";
         }
