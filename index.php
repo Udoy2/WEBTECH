@@ -41,11 +41,11 @@
     <h2>Biggest Marketplace to buy or sell pets</h2>
     <h3>Choose your role</h3>
 
-    <form action="./view/seller.php" method="GET">
+    <form action="./view/post/seller.php" method="GET">
         <button>Seller</button>
     </form>
     
-    <form action="./view/buyer.php" method="GET">
+    <form action="./view/post/buyer.php" method="GET">
         <button>Buyer</button>
     </form>
 </body>

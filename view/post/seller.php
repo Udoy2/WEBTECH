@@ -38,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html>
 <head>
     <title>Pet Valley</title>
-    <link rel="stylesheet" href="../styles/seller.css">
+    <link rel="stylesheet" href="../../styles/seller.css">
 </head>
 <body>
     <h1>Welcome to the official website of Pet Valley</h1>

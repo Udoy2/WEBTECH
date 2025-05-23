@@ -1,9 +1,9 @@
-<?php include("control/validation.php"); ?>
+<?php include("../../control/validation.php"); ?>
 
 <html>
 <head>
     <title>Pet Valley</title>
-    <link rel="stylesheet" href="../styles/buyer.css">
+    <link rel="stylesheet" href="../../styles/buyer.css">
 </head>
 <body>
     <h1>Welcome to the official website of Pet Valley</h1>
