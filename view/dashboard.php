@@ -1,8 +1,8 @@
 <?php
-// dashboard.php
+
 session_start();
 if (!isset($_SESSION['buyer_id'])) {
-    header("Location: login.php");
+    header("Location: ./login.php");
     exit();
 }
 
@@ -19,20 +19,18 @@ $stmt->close();
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
 <head>
-    <meta charset="UTF-8" />
     <title>Pet Valley Dashboard</title>
-    <link rel="stylesheet" href="../assets/dashboardstyle.css" />
+    <link rel="stylesheet" href="./dashboardstyle.css" />
 </head>
 <body>
 <header>
     <div class="header-container">
         <h1>Pet Valley Dashboard</h1>
         <nav class="nav-buttons">
-           <a href="profile.php" class="btn">My Profile</a>
-           <a href="../cart/cart.php" class="btn">Go to Cart</a> 
-           <a href="logout.php" class="btn btn-logout">Logout</a>
+           <a href="./profile.php" class="btn">My Profile</a>
+          <a href="./cart.php" class="btn">Go to Cart</a>
+           <a href="../control/logoutcontrol.php" class="btn btn-logout">Logout</a>
         </nav>
     </div>
 </header>
@@ -66,7 +64,7 @@ $stmt->close();
             echo '<img src="../assets/pets/' . htmlspecialchars($pet['image']) . '" alt="' . htmlspecialchars($pet['name']) . '">';
             echo '<h4>' . htmlspecialchars($pet['name']) . '</h4>';
             echo '<p>Price: $' . htmlspecialchars($pet['price']) . '</p>';
-            echo '<form method="post" action="../cart/add_to_cart.php">';
+            echo '<form method="post" action="../control/add_to_cart.php">';
             echo '<input type="hidden" name="product_name" value="' . htmlspecialchars($pet['name']) . '">';
             echo '<input type="hidden" name="price" value="' . htmlspecialchars($pet['price']) . '">';
             echo '<button type="submit" class="btn">Add to Cart</button>';
@@ -97,7 +95,7 @@ $stmt->close();
             echo '<img src="../assets/pets/' . htmlspecialchars($item['image']) . '" alt="' . htmlspecialchars($item['name']) . '">';
             echo '<h4>' . htmlspecialchars($item['name']) . '</h4>';
             echo '<p>Price: $' . htmlspecialchars($item['price']) . '</p>';
-            echo '<form method="post" action="../cart/add_to_cart.php">';
+            echo '<form method="post" action="../control/add_to_cart.php">';
             echo '<input type="hidden" name="product_name" value="' . htmlspecialchars($item['name']) . '">';
             echo '<input type="hidden" name="price" value="' . htmlspecialchars($item['price']) . '">';
             echo '<button type="submit" class="btn">Add to Cart</button>';

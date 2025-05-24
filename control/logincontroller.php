@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (password_verify($password, $hashed_password)) {
                 $_SESSION['buyer_id'] = $id;
                 $_SESSION['buyer_name'] = $name;
-                header("Location: dashboard.php");
+                header("Location: ../view/dashboard.php");
                 exit();
             } else {
                 $error = "Incorrect password.";
@@ -31,27 +31,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         $stmt->close();
     }
-}
-?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
     
-    <title>Login - Pet Valley</title>
-    <link rel="stylesheet" href="../assets/loginstyle.css" />
-</head>
-<body>
-    <form method="POST" action="">
-    <h2>Login to Pet Valley</h2>   <!-- Add this -->
-    <input type="text" name="email" placeholder="Email" required value="<?php echo htmlspecialchars($email ?? ''); ?>">
-    <input type="password" name="password" placeholder="Password" required>
-    <button type="submit">Login</button>
-</form>
-
-
-    <?php if (isset($error)) : ?>
-        <div class="error"><?php echo htmlspecialchars($error); ?></div>
-    <?php endif; ?>
-</body>
-</html>
+    $_SESSION['error'] = $error;
+    $_SESSION['old_email'] = $email;
+    header("Location: ../view/login.php");
+    exit();
+}

@@ -3,7 +3,7 @@ session_start();
 require_once '../db/db.php';
 
 if (!isset($_SESSION['buyer_id'])) {
-    header("Location: login.php");
+    header("Location: ../view/login.php");
     exit();
 }
 
@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $address = $_POST['address'];
 
     $conn->query("UPDATE buyers SET name = '$name', address = '$address' WHERE id = $id");
-    header("Location: dashboard.php");
+    header("Location: ../view/dashboard.php");
     exit();
 }
 ?>
