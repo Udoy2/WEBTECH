@@ -1,0 +1,132 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #fefefe;
+  margin: 0;
+  padding: 20px;
+  color: #333;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+h2,
+h3 {
+  text-align: center;
+  margin-top: 20px;
+  color: #4caf50;
+}
+
+.btn-group {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.btn {
+  background-color: #4caf50;
+  color: white;
+  padding: 8px 18px;
+  text-decoration: none;
+  border-radius: 6px;
+  margin: 0 5px;
+  display: inline-block;
+}
+
+.btn:hover {
+  background-color: #45a049;
+}
+
+.btn-logout {
+  background-color: #d9534f;
+}
+
+.btn-logout:hover {
+  background-color: #c9302c;
+}
+
+.orders-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 30px;
+}
+
+.orders-table th,
+.orders-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+
+.orders-table th {
+  background-color: #f4f4f4;
+}
+
+.btn-danger {
+  background-color: #d9534f;
+  padding: 6px 12px;
+  border-radius: 5px;
+  text-decoration: none;
+  color: white;
+}
+
+.btn-danger:hover {
+  background-color: #c9302c;
+}
+
+.update-form {
+  max-width: 500px;
+  margin: 0 auto 40px;
+}
+
+.update-form label {
+  display: block;
+  margin: 10px 0 5px;
+  font-weight: bold;
+}
+
+.update-form input[type="text"],
+.update-form input[type="email"],
+.update-form select,
+.update-form textarea {
+  width: 100%;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.update-form button {
+  margin-top: 20px;
+  width: 100%;
+  padding: 10px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.update-form button:hover {
+  background-color: #45a049;
+}
+
+.update-msg {
+  text-align: center;
+  color: green;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.gender-group {
+  margin-bottom: 10px;
+}
+
+.gender-group label {
+  margin-right: 10px;
+}
+
+.no-orders {
+  text-align: center;
+  font-style: italic;
+}
