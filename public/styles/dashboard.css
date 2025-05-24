@@ -1,0 +1,216 @@
+.dashboard-container {
+    max-width: 1200px;
+    margin: 80px auto 20px;
+    padding: 20px;
+}
+
+.dashboard-container h1 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.add-post-btn {
+    display: inline-block;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+.add-post-btn:hover {
+    background-color: #45a049;
+}
+
+.posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.post-card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.post-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.post-info {
+    padding: 15px;
+}
+
+.post-info h3 {
+    margin: 0 0 10px;
+    color: #333;
+}
+
+.category {
+    color: #666;
+    font-size: 0.9em;
+}
+
+.price {
+    color: #4CAF50;
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+.description {
+    color: #555;
+    margin: 10px 0;
+}
+
+.availability {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8em;
+    margin-top: 10px;
+}
+
+.available {
+    background-color: #e8f5e9;
+    color: #4CAF50;
+}
+
+.not-available {
+    background-color: #ffebee;
+    color: #c62828;
+}
+
+.post-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.edit-btn,
+.delete-btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9em;
+}
+
+.edit-btn {
+    background-color: #2196F3;
+    color: white;
+}
+
+.delete-btn {
+    background-color: #f44336;
+    color: white;
+}
+
+.success-message,
+.error-message {
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+.success-message {
+    background-color: #e8f5e9;
+    color: #4CAF50;
+    border: 1px solid #a5d6a7;
+}
+
+.error-message {
+    background-color: #ffebee;
+    color: #c62828;
+    border: 1px solid #ef9a9a;
+}
+
+@media (max-width: 768px) {
+    .posts-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .dashboard-container {
+        padding: 10px;
+    }
+}
+
+
+/* Edit Post Form Styles */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+    font-weight: 500;
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.preview-image {
+    display: block;
+    max-width: 200px;
+    margin: 10px 0;
+    border-radius: 4px;
+}
+
+.form-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.submit-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.cancel-btn {
+    background-color: #f44336;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    text-align: center;
+}
+
+.submit-btn:hover {
+    background-color: #45a049;
+}
+
+.cancel-btn:hover {
+    background-color: #d32f2f;
+}
+
+small {
+    color: #666;
+    font-size: 12px;
+    margin-top: 5px;
+    display: block;
+}
